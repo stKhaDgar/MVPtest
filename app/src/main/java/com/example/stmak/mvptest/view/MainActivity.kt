@@ -17,11 +17,16 @@ class MainActivity : AppCompatActivity(), MainActivityContract.IView {
         presenter = MainActivityPresenter(this)
 
         bt_find.setOnClickListener {
-            presenter.clickedToastButton()
+            presenter.clickedButton()
         }
     }
 
-    override fun displayToastMessage() {
-        Toast.makeText(this, "Clicked!", Toast.LENGTH_SHORT).show()
+    override fun insertImage(image: String) {
+        Toast.makeText(this, image, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestroy()
     }
 }

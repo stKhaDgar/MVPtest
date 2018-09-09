@@ -2,10 +2,15 @@ package com.example.stmak.mvptest
 
 interface MainActivityContract {
     interface IView{
-        fun displayToastMessage() = Unit
+        fun insertImage(image: String)
     }
 
     interface IPresenter{
-        fun clickedToastButton() = Unit
+        fun clickedButton()
+        fun onDestroy()
+    }
+
+    interface IModel{
+        fun loadImage() : String
     }
 }
