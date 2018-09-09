@@ -8,7 +8,7 @@ import com.example.stmak.mvptest.R
 import com.example.stmak.mvptest.presenter.MainActivityPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), MainActivityContract.view {
+class MainActivity : AppCompatActivity(), MainActivityContract.IView {
     lateinit var presenter: MainActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {

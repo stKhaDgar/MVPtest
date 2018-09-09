@@ -1,11 +1,11 @@
 package com.example.stmak.mvptest
 
 interface MainActivityContract {
-    interface view{
+    interface IView{
         fun displayToastMessage() = Unit
     }
 
-    interface presenter{
+    interface IPresenter{
         fun clickedToastButton() = Unit
     }
 }
