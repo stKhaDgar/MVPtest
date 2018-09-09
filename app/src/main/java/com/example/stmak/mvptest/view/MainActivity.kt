@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.example.stmak.mvptest.MainActivityContract
 import com.example.stmak.mvptest.R
 import com.example.stmak.mvptest.presenter.MainActivityPresenter
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.IView {
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.IView {
     }
 
     override fun insertImage(image: String) {
-        Toast.makeText(this, image, Toast.LENGTH_SHORT).show()
+        Picasso.get().load(image).into(iv_image)
     }
 
     override fun onDestroy() {

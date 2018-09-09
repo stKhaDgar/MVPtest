@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MVPtest</string>
+    <string name="content_description">content_description</string>
+    <string name="bt_find">Find</string>
 </resources>

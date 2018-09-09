@@ -28,7 +28,6 @@ class MainActivityModel(context: Context, private var callback: MainActivityCont
                     override fun onResponse(response: JSONObject) {
                         image = response.getJSONArray("results").getJSONObject(0).getJSONObject("urls").getString("thumb")
                         callback.callingBack(image)
-                        Log.e("ErrorTask", image)
                     }
 
                     override fun onError(error: ANError) {
