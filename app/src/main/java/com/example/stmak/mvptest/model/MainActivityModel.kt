@@ -16,6 +16,7 @@ class MainActivityModel(context: Context) : MainActivityContract.IModel {
 
     override fun loadImage(): String {
         var image: String = ""
+
         AndroidNetworking.get("https://api.unsplash.com/search/photos")
                 .addQueryParameter("client_id", "dd867c1e011d5e088cba40b30db92299c48256a424fba6fa19fa931388bc0817")
                 .addQueryParameter("page", "1")
@@ -25,8 +26,6 @@ class MainActivityModel(context: Context) : MainActivityContract.IModel {
                 .build()
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
-                        // Как было указано в тех задании, в базу данных необходимо записать текст поиска и первое изображение
-                        // результата поиска, что и происходит при помощи данного участка кода
                         image = response.getJSONArray("results").getJSONObject(0).getJSONObject("urls").getString("thumb")
                         Log.e("ErrorTask", image)
                     }
@@ -35,6 +34,7 @@ class MainActivityModel(context: Context) : MainActivityContract.IModel {
                         Log.e("ErrorTask", error.errorDetail)
                     }
                 })
+
         return image
     }
 }

@@ -13,6 +13,4 @@ interface MainActivityContract {
     interface IModel{
         fun loadImage() : String
     }
-
-
 }
