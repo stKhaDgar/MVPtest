@@ -13,4 +13,8 @@ interface MainActivityContract {
     interface IModel{
         fun loadImage() : String
     }
+
+    interface ICallback{
+        fun callingBack(image: String)
+    }
 }

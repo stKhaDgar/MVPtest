@@ -8,14 +8,14 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.example.stmak.mvptest.MainActivityContract
 import org.json.JSONObject
 
-class MainActivityModel(context: Context) : MainActivityContract.IModel {
+class MainActivityModel(context: Context, private var callback: MainActivityContract.ICallback) : MainActivityContract.IModel {
 
     init {
         AndroidNetworking.initialize(context)
     }
 
     override fun loadImage(): String {
-        var image: String = ""
+        var image = ""
 
         AndroidNetworking.get("https://api.unsplash.com/search/photos")
                 .addQueryParameter("client_id", "dd867c1e011d5e088cba40b30db92299c48256a424fba6fa19fa931388bc0817")
@@ -27,6 +27,7 @@ class MainActivityModel(context: Context) : MainActivityContract.IModel {
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
                         image = response.getJSONArray("results").getJSONObject(0).getJSONObject("urls").getString("thumb")
+                        callback.callingBack(image)
                         Log.e("ErrorTask", image)
                     }
 
