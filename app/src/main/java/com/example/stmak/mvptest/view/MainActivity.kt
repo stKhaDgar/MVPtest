@@ -1,4 +1,4 @@
-package com.example.stmak.mvptest.mainActivity
+package com.example.stmak.mvptest.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
