@@ -1,5 +1,4 @@
 package com.example.stmak.mvptest.view
-
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.IView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter = MainActivityPresenter(this)
+        presenter = MainActivityPresenter(this, this)
 
         bt_find.setOnClickListener {
             presenter.clickedButton()
