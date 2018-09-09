@@ -11,7 +11,7 @@ interface MainActivityContract {
     }
 
     interface IModel{
-        fun loadImage() : String
+        fun loadImage()
     }
 
     interface ICallback{

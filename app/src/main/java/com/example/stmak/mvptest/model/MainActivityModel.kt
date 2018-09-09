@@ -14,8 +14,8 @@ class MainActivityModel(context: Context, private var callback: MainActivityCont
         AndroidNetworking.initialize(context)
     }
 
-    override fun loadImage(): String {
-        var image = ""
+    override fun loadImage() {
+        var image: String
 
         AndroidNetworking.get("https://api.unsplash.com/photos/random")
                 .addQueryParameter("client_id", "dd867c1e011d5e088cba40b30db92299c48256a424fba6fa19fa931388bc0817")
@@ -31,7 +31,5 @@ class MainActivityModel(context: Context, private var callback: MainActivityCont
                         Log.e("ErrorTask", error.errorDetail)
                     }
                 })
-
-        return image
     }
 }
