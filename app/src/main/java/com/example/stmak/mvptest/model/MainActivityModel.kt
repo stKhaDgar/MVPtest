@@ -17,16 +17,13 @@ class MainActivityModel(context: Context, private var callback: MainActivityCont
     override fun loadImage(): String {
         var image = ""
 
-        AndroidNetworking.get("https://api.unsplash.com/search/photos")
+        AndroidNetworking.get("https://api.unsplash.com/photos/random")
                 .addQueryParameter("client_id", "dd867c1e011d5e088cba40b30db92299c48256a424fba6fa19fa931388bc0817")
-                .addQueryParameter("page", "1")
-                .addQueryParameter("per_page", "20")
-                .addQueryParameter("query", "cat")
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONObject(object : JSONObjectRequestListener {
                     override fun onResponse(response: JSONObject) {
-                        image = response.getJSONArray("results").getJSONObject(0).getJSONObject("urls").getString("thumb")
+                        image = response.getJSONObject("urls").getString("thumb")
                         callback.callingBack(image)
                     }
 
