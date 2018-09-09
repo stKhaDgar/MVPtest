@@ -1,7 +1,8 @@
-package com.example.stmak.mvptest
+package com.example.stmak.mvptest.mainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.stmak.mvptest.R
 
 class MainActivity : AppCompatActivity() {
 
